@@ -1,20 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Interactive Photo Gallery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <style>
+        /* Default Mobile View */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .box {
+            width: 90%;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #333;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            max-height: 50vh; /* Default for mobile */
+            object-fit: cover;
+        }
+
+        /* Tablet View (Triggers at 772px) */
+        @media (min-width: 772px) {
+            .container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .box {
+                width: 45vw; /* 45% of viewport width */
+                max-height: 30vh; /* Max height for images */
+            }
+
+            img {
+                max-height: 30vh; /* Reduce image height */
+            }
+        }
+
+        /* Large Screen View (Triggers at 998px) */
+        @media (min-width: 998px) {
+            .box {
+                width: 30vw; /* 30% of viewport width */
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="image">Hover over an image below to display here.</div>
-    
-    <img class="preview" src="image1.jpg" alt="Image 1" onmouseover="upDate(this)" onmouseout="undo()" />
-    <img class="preview" src="image2.jpg" alt="Image 2" onmouseover="upDate(this)" onmouseout="undo()" />
-    <img class="preview" src="image3.jpg" alt="Image 3" onmouseover="upDate(this)" onmouseout="undo()" />
 
-    <script src="script.js"></script>
+    <div class="container">
+        <div class="box">
+            <img src="https://source.unsplash.com/400x300/?nature" alt="Nature Scene">
+            <p>Beautiful Nature</p>
+        </div>
+        <div class="box">
+            <img src="https://source.unsplash.com/400x300/?city" alt="City Landscape">
+            <p>City Landscape</p>
+        </div>
+        <div class="box">
+            <img src="https://source.unsplash.com/400x300/?technology" alt="Technology">
+            <p>Modern Technology</p>
+        </div>
+    </div>
+
 </body>
 </html>
-
-
